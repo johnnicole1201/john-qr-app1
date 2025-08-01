@@ -76,6 +76,15 @@ export default {
     }
   }
 },
+router: {
+  extendRoutes(routes, resolve) {
+    routes.push({
+      path: '/auth/qr',
+      redirect: '/qr'
+    })
+  }
+},
+
 
 
 
