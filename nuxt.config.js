@@ -1,6 +1,14 @@
+
+
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+ 
+  target: 'static',
+  ssr: false,
+  generate: { fallback: true },
+  // rest of your config...
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
@@ -52,12 +60,14 @@ export default {
 router: {
   extendRoutes(routes, resolve) {
     routes.push({
-      path: '/auth/qr',
+      path: '/qr',
       redirect: '/qr'
     })
   }
 },
-
+target: 'static',
+ssr: false,
+generate: { fallback: true },
 
 
 
