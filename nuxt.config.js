@@ -45,37 +45,10 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+  
 
   ],
-  auth: {
-  redirect: {
-    login: '/login',
-    logout: '/',
-    callback: '/callback',
-    home: '/dashboard'
-  },
-  strategies: {
-    google: {
-      clientId: '463098099165-arrs3m25lnp9uva1179q79qr6qmr623l.apps.googleusercontent.com',
-      scheme: "oauth2",
-      endpoints: {
-        authorization: "https://accounts.google.com/o/oauth2/auth",
-        userInfo: "https://www.googleapis.com/oauth2/v3/userinfo",
-      },
-      token: {
-        property: "access_token",
-        type: "Bearer",
-        maxAge: 1800,
-      },
-      responseType: "token",
-      scope: ["openid", "profile", "email"],
-      redirectUri: process.env.GOOGLE_REDIRECT_URI, // ✅ gumamit ng env
-      codeChallengeMethod: "",
-    }
-  }
-},
+  
 router: {
   extendRoutes(routes, resolve) {
     routes.push({
