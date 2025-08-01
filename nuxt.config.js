@@ -28,6 +28,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    
+  '~/plugins/vue-qrcode-reader.js'
+
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -46,28 +50,33 @@ export default {
 
   ],
   auth: {
-    strategies: {
-      google: {
-
-        clientId: '463098099165 - arrs3m25lnp9uva1179q79qr6qmr623l.apps.googleusercontent.com',
-        scheme: "oauth2",
-        endpoints:{
-          authorization: "https://accounts.google.com/o/auth2/auth",
-          userInfo: "https://www.googleapis.com/oauth2/v3/userinfo",
-        },
-        token: {
-          property: "access_token",
-          type: "Bearer",
-          maxAge: 1800,
-        },
-        responseType: "token id_token",
-        scope: ["openid", "profile", "email"],
-        redirectUri: "http://localhost:3000/auth/callback",
-        codeChallengeMethod: "",
+  redirect: {
+    login: '/login',
+    logout: '/',
+    callback: '/callback',
+    home: '/dashboard'
+  },
+  strategies: {
+    google: {
+      clientId: '463098099165-arrs3m25lnp9uva1179q79qr6qmr623l.apps.googleusercontent.com',
+      scheme: "oauth2",
+      endpoints: {
+        authorization: "https://accounts.google.com/o/oauth2/auth",
+        userInfo: "https://www.googleapis.com/oauth2/v3/userinfo",
       },
+      token: {
+        property: "access_token",
+        type: "Bearer",
+        maxAge: 1800,
+      },
+      responseType: "token",
+      scope: ["openid", "profile", "email"],
+      redirectUri: process.env.GOOGLE_REDIRECT_URI, // ✅ gumamit ng env
+      codeChallengeMethod: "",
+    }
+  }
+},
 
-      }
-    },
 
 
 

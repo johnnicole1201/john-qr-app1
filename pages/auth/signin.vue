@@ -31,6 +31,7 @@
                 
                 <v-btn color="error" @click=" signinWithGoogle()" class="text-capitalize" rounded block>
                 <v-icon left>mdi-google </v-icon>Sign in with Google  </v-btn>
+                
                 </v-form>
             </v-card-text >
             <v-card-text>
